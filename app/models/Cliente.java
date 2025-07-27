@@ -20,7 +20,7 @@ public class Cliente extends Model {
 	public Status status; 
 	
 	public Cliente() {
-
+		this.status = Status.ATIVO;
 	}
 
 	public Cliente(String nomeCliente, String email) {
