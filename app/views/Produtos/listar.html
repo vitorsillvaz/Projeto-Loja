@@ -1,22 +1,60 @@
 #{extends 'main.html' /}
 #{set title:'Listagem de Produtos' /}
 
-<form action="@{Produtos.listar}">
-	<label>Buscar por nome ou categoria:</label>
-	<input type="text" name="termo" value="${termo}" />
-	<input type="submit" />
-</form>
-
-<ul>
-	#{list items: produtos, as:'p'}
-		<li>${p.nomeProduto} - R$ ${p.preco} - ${p.categoria} | 
-			<a href="@{Produtos.editar(p.id)}">Editar</a> |
-			<a href="@{Produtos.remover(p.id)}">Remover</a>
-		</li>
-	#{/list}
-	#{else}
-		<li>Nenhuma produto cadastrado</li>
-	#{/else}
-</ul>
-
-<a class="btn btn-primary" href="@{Produtos.form}">Cadastrar Novo</a>
+<!--================Order Details Area =================-->
+<section class="order_details section-margin--small">
+  <div class="container">
+    <div class="order_details_table">
+      <h2>Produtos disponíveis no Site</h2>
+      <form class="row login_form" action="@{Produtos.listar}">
+        <div class="col-md-12 form-group">
+          <label for="termo">Buscar:
+          </label>
+          <input type="text" name="termo" value="${termo}" placeholder="nome ou categoria" style=""/>
+          <input type="submit" value="Buscar" style="cursor: pointer; "/>
+        </div>
+      </form>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Produto</th>
+              <th scope="col">Categoria</th>
+              <th scope="col">Preço</th>
+              <th scope="col">-</th>
+              <th scope="col">-</th>
+            </tr>
+          </thead>
+          <tbody>
+            #{list items: produtos, as:'p'}
+            <tr>
+              <td>
+                <p>${p.nomeProduto}</p>
+              </td>
+              <td>
+                <p>${p.categoria}</p>
+              </td>
+              <td>
+                <p>R$ ${p.preco}</p>
+              </td>
+              <td>
+                <p><a href="@{Produtos.editar(p.id)}">Editar Informaçôes</a></p>
+              </td>
+              <td>
+                <p><a href="@{Produtos.remover(p.id)}">Remover do Site</a></p>
+              </td>
+            </tr>
+            #{/list}
+            #{else}
+            <tr>
+              <td>Nenhuma produto cadastrado</td>
+            </tr>
+            #{/else}
+          </tbody>
+        </table>
+      </div>
+      <a class="btn" href="@{Produtos.form}">CADASTRAR PRODUTO</a>
+    </div>
+  </div>
+</section>
+<!--================End Order Details Area =================-->
