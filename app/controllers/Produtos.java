@@ -21,7 +21,7 @@ public class Produtos extends Controller {
 		if (termo == null) {
 			produtos = Produto.find("status <> ?1", Status.INATIVO).fetch();
 		} else {
-			produtos = Produto.find("(lower(nomeProduto) like ?1 " + "or lower(categoria) like ?1) and status <> ?2",
+			produtos = Produto.find("(lower(nomeProduto) like ?1 " + "or lower(categoria.categoria) like ?1) and status <> ?2",
 					"%" + termo.toLowerCase() + "%", Status.INATIVO).fetch();
 		}
 		render(produtos, termo);

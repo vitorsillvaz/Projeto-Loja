@@ -12,7 +12,7 @@ public class Inicializador extends Job{
 	@Override
 	public void doJob() throws Exception {
 		if (Categoria.count() == 0) {
-			Categoria proteina = new Categoria("Proteína");
+			Categoria proteina = new Categoria("Proteina");
 			proteina.save();
 			
 			Categoria creatina = new Categoria("Creatina");
