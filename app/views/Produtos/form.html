@@ -1,33 +1,47 @@
 #{extends 'main.html' /}
 #{set title:'Cadastro de Produto' /}
 
-<form action="@{Produtos.salvar}">
-	<input type="hidden" name="produto.id" value="${p?.id}" />
+<!--================Login Box Area =================-->
+<section class="login_box_area section-margin">
+	<div class="container" id="registrar">
 
-	<div class="mb-3">
-		<label class="form-label">Nome do Produto:</label>
-		<input class="form-control" type="text"
-			name="produto.nomeProduto" value="${p?.nomeProduto}" />
+		<div class="row">
+			<div class="col-lg-6" style="margin: 0 auto;">
+				<div class="login_form_inner register_form_inner">
+					<h3>Cadastrar produto no Site</h3>
+					<form class="row login_form" action="@{Produtos.salvar}" id="register_form">
+						<input type="hidden" name="produto.id" value="${p?.id}" />
+
+						<div class="col-md-12 form-group">
+							<input type="text" class="form-control" id="name" name="produto.nomeProduto"
+								value="${p?.nomeProduto}" placeholder="Nome do produto">
+						</div>
+						<div class="col-md-12 form-group">
+							<input type="text" class="form-control" id="email" name="produto.preco" value="${p?.preco}"
+								placeholder="Valor do produto">
+						</div>
+
+						<div class="col-md-12 form-group">
+
+							<select class="form-select" name="produto.categoria.id">
+								<option value="Categoria">Categoria</option>
+								#{list items:categorias, as:'c'}
+								<option value="${c.id}" ${c.id==p?.categoria?.id ? 'selected' : '' }>
+									${c.categoria}
+								</option>
+								#{/list}
+							</select>
+						</div>
+
+						<div class="col-md-12 form-group">
+							<button type="submit" value="submit ${p ? 'Editar':'Cadastrar'}"
+								class="button button-register w-100">Register</button>
+						     
+							</div>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
-	
-	<div class="mb-3">
-		<label class="form-label">Preço:</label>
-		<input class="form-control" type="text"
-			name="produto.preco" value="${p?.preco}" />
-	</div>
-	
-	<div class="mb-3">
-		<label class="form-label">Categoria:</label>
-		<select class="form-select" name="produto.categoria.id">
-			#{list items:categorias, as:'c'}
-				<option value="${c.id}" 
-					${c.id == p?.categoria?.id ? 'selected' : ''}>
-						${c.categoria}
-				</option>
-			#{/list}
-		</select>
-	</div>
-	
-	<input class="btn btn-primary" type="submit"
-		value="${p ? 'Editar':'Cadastrar'}" />
-</form>
+</section>
+<!--================End Login Box Area =================-->

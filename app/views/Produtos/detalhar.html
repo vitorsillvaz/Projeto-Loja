@@ -1,9 +1,30 @@
 #{extends 'main.html' /}
 #{set title:'Detalhamento' /}
 
-<p>${produto.nomeProduto}</p>
-<p>${produto.preco}</p>
-<p>${produto.categoria}</p>
+<!--================Login Box Area =================-->
+<section class="login_box_area section-margin">
+	<div class="container" id="registrar">
 
-<a class="btn btn-primary" href="@{Produtos.form}">Cadastrar novo</a>
-<a class="btn btn-secondary" href="@{Produtos.listar}">Listagem</a>
+		<div class="row">
+			<div class="col-lg-6" style="margin: 0 auto;">
+				<div class="login_form_inner register_form_inner">
+					<h3>Informações do Produto</h3>
+					<p>Nome do produto: ${produto.nomeProduto}</p>
+					<p>Valor: ${produto.preco}</p>
+					<p>Categoria: ${produto.categoria}</p>
+
+					<div class="col-md-12 form-group">
+						<button type="submit" value="submit" class="button button-register w-100">
+							<a href="@{Produtos.form}" style="color: white;">Novo Produto</a>
+						</button><br>
+						<button type="submit" value="submit" class="button button-register w-100">
+							<a href="@{Produtos.listar}" style="color: white;">Listagem</a>
+						</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Login Box Area =================-->
