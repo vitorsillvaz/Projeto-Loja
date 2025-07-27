@@ -1,0 +1,9 @@
+#{extends 'main.html' /}
+#{set title:'Detalhamento' /}
+
+<p>${produto.nomeProduto}</p>
+<p>${produto.preco}</p>
+<p>${produto.categoria}</p>
+
+<a class="btn btn-primary" href="@{Produtos.form}">Cadastrar novo</a>
+<a class="btn btn-secondary" href="@{Produtos.listar}">Listagem</a>

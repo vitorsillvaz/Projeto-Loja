@@ -1,0 +1,22 @@
+#{extends 'main.html' /}
+#{set title:'Listagem de Produtos' /}
+
+<form action="@{Produtos.listar}">
+	<label>Buscar por nome ou categoria:</label>
+	<input type="text" name="termo" value="${termo}" />
+	<input type="submit" />
+</form>
+
+<ul>
+	#{list items: produtos, as:'p'}
+		<li>${p.nomeProduto} - R$ ${p.preco} - ${p.categoria} | 
+			<a href="@{Produtos.editar(p.id)}">Editar</a> |
+			<a href="@{Produtos.remover(p.id)}">Remover</a>
+		</li>
+	#{/list}
+	#{else}
+		<li>Nenhuma produto cadastrado</li>
+	#{/else}
+</ul>
+
+<a class="btn btn-primary" href="@{Produtos.form}">Cadastrar Novo</a>
