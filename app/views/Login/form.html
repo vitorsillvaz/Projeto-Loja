@@ -1,0 +1,34 @@
+#{extends 'main.html' /} #{set title:'Login' /}
+
+
+<!--================Login Box Area =================-->
+<section class="login_box_area section-margin">
+	<div class="container" id="registrar">
+
+		<div class="row">
+			<div class="col-lg-6" style="margin: 0 auto;">
+				<div class="login_form_inner register_form_inner">
+					<h3>Login</h3>
+					<form class="row login_form" action="@{Login.logar}"
+						id="register_form">
+
+						<div class="col-md-12 form-group">
+							<input type="text" class="form-control" id="email" name="email"
+								placeholder="email">
+						</div>
+						<div class="col-md-12 form-group">
+							<input type="password" class="form-control" id="senha"
+								name="senha" placeholder="password">
+						</div>
+
+						<div class="col-md-12 form-group">
+							<button type="submit" value="submit ${p ? 'Editar':'Cadastrar'}"
+								class="button button-register w-100">entrar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Login Box Area =================-->
