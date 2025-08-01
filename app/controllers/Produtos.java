@@ -36,6 +36,7 @@ public class Produtos extends Controller {
 
 		renderTemplate("Produtos/form.html", p, categorias);
 	}
+	
 	public static void salvar(Produto produto) {
 		if (produto.nomeProduto != null) {
 			produto.nomeProduto = produto.nomeProduto.toUpperCase();
