@@ -8,8 +8,6 @@
       <h2>Produtos disponíveis no Site</h2>
       <form class="row login_form" action="@{Produtos.listar}">
         <div class="col-md-12 form-group">
-          <label for="termo">Buscar:
-          </label>
           <input type="text" name="termo" value="${termo}" placeholder="nome ou categoria" style=""/>
           <input type="submit" value="Buscar" style="cursor: pointer; "/>
         </div>
@@ -32,16 +30,16 @@
                 <p>${p.nomeProduto}</p>
               </td>
               <td>
-                <p>${p.categoria}</p>
+				<p>${p.categoria.categoria}</p>
               </td>
               <td>
                 <p>R$ ${p.preco}</p>
               </td>
               <td>
-                <p><a href="@{Produtos.editar(p.id)}">Editar Informaçôes</a></p>
+                <p><a href="@{Produtos.editar(p.id)}"  class="btn btn-sm btn-primary">Editar Informaçôes</a></p>
               </td>
               <td>
-                <p><a href="@{Produtos.remover(p.id)}">Remover do Site</a></p>
+                <p><a href="@{Produtos.remover(p.id)}" class="btn btn-sm btn-danger">Remover do Site</a></p>
               </td>
             </tr>
             #{/list}

@@ -41,14 +41,10 @@ public class Produtos extends Controller {
 		if (produto.nomeProduto != null) {
 			produto.nomeProduto = produto.nomeProduto.toUpperCase();
 		}
-		if (produto.preco != 0) {
-			produto.preco = produto.preco;
-		}
 		produto.save();
 		detalhar(produto);
 
 	}
-
 	public static void remover(Long id) {
 		Produto produto = Produto.findById(id);
 		produto.status = Status.INATIVO;
