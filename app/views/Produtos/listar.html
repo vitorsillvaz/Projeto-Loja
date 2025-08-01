@@ -3,8 +3,8 @@
 
 <!--================Order Details Area =================-->
 <section class="order_details section-margin--small">
-  <div class="container">
-    <div class="order_details_table">
+  <div class="container" >
+    <div class="order_details_table" style="border-radius: 10px;">
       <h2>Produtos disponíveis no Site</h2>
       <form class="row login_form" action="@{Produtos.listar}">
         <div class="col-md-12 form-group">
@@ -27,25 +27,25 @@
             #{list items: produtos, as:'p'}
             <tr>
               <td>
-                <p>${p.nomeProduto}</p>
+                ${p.nomeProduto}
               </td>
               <td>
-				<p>${p.categoria.categoria}</p>
+				${p.categoria.categoria}
               </td>
               <td>
-                <p>R$ ${p.preco}</p>
+                R$ ${p.preco}
               </td>
               <td>
-                <p><a href="@{Produtos.editar(p.id)}"  class="btn btn-sm btn-primary">Editar Informaçôes</a></p>
+                <a href="@{Produtos.editar(p.id)}"  class="btn btn-sm btn-primary">Editar Informaçôes</a>
               </td>
               <td>
-                <p><a href="@{Produtos.remover(p.id)}" class="btn btn-sm btn-danger">Remover do Site</a></p>
+                <a href="@{Produtos.remover(p.id)}" class="btn btn-sm btn-danger">Remover do Site</a>
               </td>
             </tr>
             #{/list}
             #{else}
             <tr>
-              <td>Nenhuma produto cadastrado</td>
+              <td colspan="5" >Nenhuma produto cadastrado</td>
             </tr>
             #{/else}
           </tbody>
