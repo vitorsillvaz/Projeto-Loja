@@ -3,174 +3,179 @@
 <html>
 
 <head>
-  <title>#{get 'title' /}</title>
-  <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
-  #{get 'moreStyles' /}
-  <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+	<title>#{get 'title' /}</title>
+	<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+	#{get 'moreStyles' /}
+	<link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="icon" href="@{'/public/aroma-master/img/Fevicon.png'}" type="image/png">
-  <link rel="stylesheet" href="@{'/public/aroma-master/vendors/bootstrap/bootstrap.min.css'}">
-  <link rel="stylesheet" href="@{'/public/aroma-master/vendors/fontawesome/css/all.min.css'}">
-  <link rel="stylesheet" href="@{'/public/aroma-master/vendors/themify-icons/themify-icons.css'}">
-  <link rel="stylesheet" href="@{'/public/aroma-master/vendors/nice-select/nice-select.css'}">
-  <link rel="stylesheet" href="@{'/public/aroma-master/vendors/owl-carousel/owl.theme.default.min.css'}">
-  <link rel="stylesheet" href="@{'/public/aroma-master/vendors/owl-carousel/owl.carousel.min.css'}">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="icon" href="@{'/public/aroma-master/img/Fevicon.png'}" type="image/png">
+	<link rel="stylesheet" href="@{'/public/aroma-master/vendors/bootstrap/bootstrap.min.css'}">
+	<link rel="stylesheet" href="@{'/public/aroma-master/vendors/fontawesome/css/all.min.css'}">
+	<link rel="stylesheet" href="@{'/public/aroma-master/vendors/themify-icons/themify-icons.css'}">
+	<link rel="stylesheet" href="@{'/public/aroma-master/vendors/nice-select/nice-select.css'}">
+	<link rel="stylesheet" href="@{'/public/aroma-master/vendors/owl-carousel/owl.theme.default.min.css'}">
+	<link rel="stylesheet" href="@{'/public/aroma-master/vendors/owl-carousel/owl.carousel.min.css'}">
 
-  <link rel="stylesheet" href="@{'/public/aroma-master/css/style.css'}">
+	<link rel="stylesheet" href="@{'/public/aroma-master/css/style.css'}">
 </head>
 
 <body>
-  <!--================ Start Header Menu Area =================-->
-  <header class="header_area">
-    <div class="main_menu">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-          <a class="navbar-brand logo_h" href="#"><img src="@{'/public/images/logo.png'}" alt="logo"
-              width="150px" height="100px"></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-            <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-              <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
-              <li class="nav-item submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                  aria-expanded="false">Comprar</a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="#">Categorias</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#">Marcas</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#">Novidades</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#">Ofertas</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#">Carrinho</a></li>
-                </ul>
-              </li>
-              <li class="nav-item submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                  aria-expanded="false">Sobre</a>
-              </li>
-              <li class="nav-item submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                  aria-expanded="false">Páginas</a>
-                <ul class="dropdown-menu">
-                <li class="nav-item"><a class="nav-link" href="@{Usuarios.form}">Login</a></li>
-                  <li class="nav-item"><a class="nav-link" href="@{Produtos.form}">Cadastrar produto</a></li>
-                  <li class="nav-item"><a class="nav-link" href="@{Produtos.listar}">Listagem</a></li>
-                </ul>
-              </li>
-              <li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
-            </ul>
+	<!--================ Start Header Menu Area =================-->
+	<header class="header_area">
+		<div class="main_menu">
+			<nav class="navbar navbar-expand-lg navbar-light">
+				<div class="container">
+					<a class="navbar-brand logo_h" href="#"><img src="@{'/public/images/logo.png'}" alt="logo"
+							width="150px" height="100px"></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav ml-auto mr-auto">
+							<li class="nav-item"><a class="nav-link" href="#">Início</a></li>
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+									aria-haspopup="true" aria-expanded="false">Comprar</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link" href="#">Categorias</a></li>
+									<li class="nav-item"><a class="nav-link" href="#">Marcas</a></li>
+									<li class="nav-item"><a class="nav-link" href="#">Novidades</a></li>
+									<li class="nav-item"><a class="nav-link" href="#">Ofertas</a></li>
+									<li class="nav-item"><a class="nav-link" href="#">Carrinho</a></li>
+								</ul>
+							</li>
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+									aria-haspopup="true" aria-expanded="false">Sobre</a>
+							</li>
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+									aria-haspopup="true" aria-expanded="false">Páginas</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link" href="@{Usuarios.form}">Login</a></li>
+									<li class="nav-item"><a class="nav-link" href="@{Produtos.form}">Cadastrar
+											produto</a></li>
+									<li class="nav-item"><a class="nav-link" href="@{Produtos.listar}">Listagem</a></li>
+									<li class="nav-item"><a class="nav-link" href="@{Login.sair}">Sair</a></li>
+								</ul>
+							</li>
+							<li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
+						</ul>
 
-            <ul class="nav-shop">
-              <li class="nav-item"><button><i class="ti-search"></i></button></li>
-              <li class="nav-item"><button><i class="ti-shopping-cart"></i><span
-                    class="nav-shop__circle">3</span></button> </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </header>
-  <!--================ End Header Menu Area =================-->
+						<ul class="nav-shop">
+							<li class="nav-item"><button><i class="ti-search"></i></button></li>
+							<li class="nav-item"><button><i class="ti-shopping-cart"></i><span
+										class="nav-shop__circle">3</span></button> </li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<!--================ End Header Menu Area =================-->
 
-  #{doLayout /}
+	#{doLayout /}
 
 
-  <!--================ Start footer Area  =================-->
-  <footer class="footer">
-    <div class="footer-area">
-      <div class="container">
-        <div class="row section_gap">
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="single-footer-widget tp_widgets">
-              <h4 class="footer_title large_title">Nossa Missão</h4>
-              <p>
-                Promover saúde, performance e qualidade de vida através de suplementos de alta qualidade para atletas e entusiastas do fitness.
-              </p>
-              <p>
-                Trabalhamos com as melhores marcas do mercado para garantir os melhores resultados para nossos clientes.
-              </p>
-            </div>
-          </div>
-          <div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
-            <div class="single-footer-widget tp_widgets">
-              <h4 class="footer_title">Links Rápidos</h4>
-              <ul class="list">
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Suplementos</a></li>
-                <li><a href="#">Ofertas</a></li>
-                <li><a href="#">Marcas</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
-            <div class="single-footer-widget tp_widgets">
-              <h4 class="footer_title">Fale conosco</h4>
-              <div class="ml-40">
-                <p class="sm-head">
-                  <span class="fa fa-location-arrow"></span>
-                  Endereço
-                </p>
-                <p>Av. Saúde e Força, 1200 - João Câmara</p>
+	<!--================ Start footer Area  =================-->
+	<footer class="footer">
+		<div class="footer-area">
+			<div class="container">
+				<div class="row section_gap">
+					<div class="col-lg-3 col-md-6 col-sm-6">
+						<div class="single-footer-widget tp_widgets">
+							<h4 class="footer_title large_title">Nossa Missão</h4>
+							<p>
+								Promover saúde, performance e qualidade de vida através de suplementos de alta qualidade
+								para atletas e entusiastas do fitness.
+							</p>
+							<p>
+								Trabalhamos com as melhores marcas do mercado para garantir os melhores resultados para
+								nossos clientes.
+							</p>
+						</div>
+					</div>
+					<div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
+						<div class="single-footer-widget tp_widgets">
+							<h4 class="footer_title">Links Rápidos</h4>
+							<ul class="list">
+								<li><a href="#">Início</a></li>
+								<li><a href="#">Suplementos</a></li>
+								<li><a href="#">Ofertas</a></li>
+								<li><a href="#">Marcas</a></li>
+								<li><a href="#">Sobre</a></li>
+								<li><a href="#">Contato</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
+						<div class="single-footer-widget tp_widgets">
+							<h4 class="footer_title">Fale conosco</h4>
+							<div class="ml-40">
+								<p class="sm-head">
+									<span class="fa fa-location-arrow"></span>
+									Endereço
+								</p>
+								<p>Av. Saúde e Força, 1200 - João Câmara</p>
 
-                <p class="sm-head">
-                  <span class="fa fa-phone"></span>
-                  Telefone
-                </p>
-                <p>
-                  +123 456 7890 <br>
-                  +123 456 7890
-                </p>
+								<p class="sm-head">
+									<span class="fa fa-phone"></span>
+									Telefone
+								</p>
+								<p>
+									+123 456 7890 <br>
+									+123 456 7890
+								</p>
 
-                <p class="sm-head">
-                  <span class="fa fa-envelope"></span>
-                  Email
-                </p>
-                <p>
-                  free@infoexample.com <br>
-                  www.infoexample.com
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+								<p class="sm-head">
+									<span class="fa fa-envelope"></span>
+									Email
+								</p>
+								<p>
+									free@infoexample.com <br>
+									www.infoexample.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-    <div class="footer-bottom">
-      <div class="container">
-        <div class="row d-flex">
-          <p class="col-lg-12 footer-text text-center">
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;
-            <script>document.write(new Date().getFullYear());</script> Todos os direitos reservados | Template by <a href="https://colorlib.com"
-              target="_blank">Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-          </p>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!--================ End footer Area  =================-->
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row d-flex">
+					<p class="col-lg-12 footer-text text-center">
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						Copyright &copy;
+						<script>document.write(new Date().getFullYear());</script> Todos os direitos reservados |
+						Template by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--================ End footer Area  =================-->
 
-  <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript"
-    charset="${_response_encoding}"></script>
-  #{get 'moreScripts' /}
-  <script src="@{'/public/aroma-master/vendors/jquery/jquery-3.2.1.min.js'}"></script>
-  <script src="@{'/public/aroma-master/vendors/bootstrap/bootstrap.bundle.min.js'}"></script>
-  <script src="@{'/public/aroma-master/vendors/skrollr.min.js'}"></script>
-  <script src="@{'/public/aroma-master/vendors/owl-carousel/owl.carousel.min.js'}"></script>
-  <script src="@{'/public/aroma-master/vendors/nice-select/jquery.nice-select.min.js'}"></script>
-  <script src="@{'/public/aroma-master/vendors/jquery.ajaxchimp.min.js'}"></script>
-  <script src="@{'/public/aroma-master/vendors/mail-script.js'}"></script>
-  <script src="@{'/public/aroma-master/js/main.js'}"></script>
+	<script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript"
+		charset="${_response_encoding}"></script>
+	#{get 'moreScripts' /}
+	<script src="@{'/public/aroma-master/vendors/jquery/jquery-3.2.1.min.js'}"></script>
+	<script src="@{'/public/aroma-master/vendors/bootstrap/bootstrap.bundle.min.js'}"></script>
+	<script src="@{'/public/aroma-master/vendors/skrollr.min.js'}"></script>
+	<script src="@{'/public/aroma-master/vendors/owl-carousel/owl.carousel.min.js'}"></script>
+	<script src="@{'/public/aroma-master/vendors/nice-select/jquery.nice-select.min.js'}"></script>
+	<script src="@{'/public/aroma-master/vendors/jquery.ajaxchimp.min.js'}"></script>
+	<script src="@{'/public/aroma-master/vendors/mail-script.js'}"></script>
+	<script src="@{'/public/aroma-master/js/main.js'}"></script>
 </body>
 
 </html>

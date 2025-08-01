@@ -12,6 +12,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import play.db.jpa.Model;
+import play.libs.Crypto;
 
 @Entity
 public class Usuario extends Model {
@@ -19,7 +20,10 @@ public class Usuario extends Model {
 	public String email;
 	public String senha;
 	
-	public Usuario() {
+	
+	public void setSenha(String senha) {
+		this.senha = Crypto.passwordHash(senha);
 	}
-
+	
+	
 }
