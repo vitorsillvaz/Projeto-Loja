@@ -1,22 +1,52 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
+#{set title:'Cadastro' /}
 
-<form action="@{Usuarios.salvar}">
+<!--================Login Box Area =================-->
+	<section class="login_box_area section-margin">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="login_box_img">
+						<div class="hover">
+							<h4>Já tem conta?</h4>
+							<p>Clique no botão abaixo para fazer login</p>
+							<a class="button button-account" href="@{Login.form}">Fazer Login</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="login_form_inner register_form_inner">
+						<h3>Criar Conta</h3>
+						<form class="row login_form" action="@{Usuarios.salvar}" id="register_form">
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="name" name="usuario.nome" value="${usuario?.nome}" placeholder="Username"
+									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+							</div>
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="email" name="usuario.email" value="${usuario?.email}"
+									placeholder="Email Address" onfocus="this.placeholder = ''"
+									onblur="this.placeholder = 'Email Address'">
+							</div>
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="password" name="usuario.senha" value="${usuario?.senha}"
+									placeholder="Password" onfocus="this.placeholder = ''"
+									onblur="this.placeholder = 'Password'">
+							</div>
+							<div class="col-md-12 form-group">
+								<select class="form-select" name="usuario.nivel">
+								   <option value="0">Comum</option>
+								   <option value="1">Admin</option>
+								</select>
+							</div>
+							<div class="col-md-12 form-group">
+								<button type="submit" value="submit"
+									class="button button-register w-100">Register</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================End Login Box Area =================-->
 
-	<input type="hidden" name="usuario.id" value="${usuario?.id}" />
-
-	Nome <input type="text" name="usuario.nome" value="${usuario?.nome}" /> <br/> 
-	
-	E-mail <input type="text" name="usuario.email" value="${usuario?.email}" /> <br/>
-	
-	Senha <input type="password" name="usuario.senha" value="${usuario?.senha}" /> <br/>
-	
-	Nivel 
-	<select name="usuario.nivel">
-		<option value="0">Comum</option>
-		<option value="1">Admin</option>
-	</select>
-	 <br/>
-	
-	<button>Salvar</button>
-</form>

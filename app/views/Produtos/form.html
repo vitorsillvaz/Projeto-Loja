@@ -22,18 +22,6 @@
 						</div>
 
 						<div class="col-md-12 form-group">
-
-							<select class="form-select" name="produto.categoria.id">
-								<option value="Categoria">Categoria</option>
-								#{list items:categorias, as:'c'}
-								<option value="${c.id}" ${c.id==p?.categoria?.id ? 'selected' : '' }>
-									${c.categoria}
-								</option>
-								#{/list}
-							</select>
-						</div>
-
-						<div class="col-md-12 form-group">
 							<button type="submit" value="submit ${p ? 'Editar':'Cadastrar'}"
 								class="button button-register w-100">Register</button>
 						     
