@@ -20,10 +20,10 @@ public class Usuario extends Model {
 	public String email;
 	public String senha;
 	
+	@Enumerated(EnumType.STRING)
+	public Status status;
 	
-	public void setSenha(String senha) {
-		this.senha = Crypto.passwordHash(senha);
+	public Usuario() {
+		this.status = Status.ATIVO;
 	}
-	
-	
 }
