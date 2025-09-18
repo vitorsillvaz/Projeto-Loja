@@ -24,7 +24,7 @@ public class Logins extends Controller {
 		} else {
 			session.put("usuarioLogado", usu.email);
 			flash.success("Logado com sucesso!");
-			Produtos.listar(null);
+			Produtos.form();
 		}
 	}
 

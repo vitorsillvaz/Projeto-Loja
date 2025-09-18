@@ -63,21 +63,17 @@
 									<li class="nav-item"><a class="nav-link" href="@{Produtos.form}">Cadastrar
 											produto</a></li>
 									<li class="nav-item"><a class="nav-link" href="@{Produtos.listar}">Listagem</a></li>
-									<li class="nav-item">
-									#{if session['usuarioLogado']}
-				                		<p>
-				                			${session['usuarioLogado']}
-				  			                <a href="@{Logins.sair}">Logout</a>
-				           	        	</p>
-				                	#{/if}
-									</li>
 									<li class="nav-item"><a class="nav-link" href="@{Logins.sair}">Sair</a></li>
 								</ul>
 							</li>
 							<li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
 						</ul>
-
+                      
 						<ul class="nav-shop">
+							<li class="nav-item">				
+								#{if session['usuarioLogado']}
+									<p>${session['usuarioLogado']}</p>
+								 #{/if}</li>
 							<li class="nav-item"><button><i class="ti-search"></i></button></li>
 							<li class="nav-item"><button><i class="ti-shopping-cart"></i><span
 										class="nav-shop__circle">3</span></button> </li>
