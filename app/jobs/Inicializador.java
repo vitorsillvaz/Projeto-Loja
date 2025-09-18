@@ -5,6 +5,7 @@ import java.util.Date;
 import models.Categoria;
 import models.Produto;
 import models.Status;
+import models.Usuario;
 import play.jobs.Job;
 import play.jobs.OnApplicationStart;
 
@@ -62,6 +63,12 @@ public class Inicializador extends Job{
 			p5.categoria = postreino;
 			p5.status = Status.ATIVO;
 			p5.save();
+			
+			Usuario joao = new Usuario();
+			joao.email = "j@gmail.com";
+			joao.nome = "João";
+			joao.senha = "1234";
+			joao.save();
 		}
 			
 			

@@ -7,7 +7,7 @@ import java.util.*;
 import models.Categoria;
 import models.Produto;
 import models.Status;
-
+@With(Seguranca.class)
 public class Produtos extends Controller {
 
 	public static void form() {
