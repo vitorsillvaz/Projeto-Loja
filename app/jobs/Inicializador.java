@@ -66,7 +66,7 @@ public class Inicializador extends Job{
 			
 			Usuario joao = new Usuario();
 			joao.email = "j@gmail.com";
-			joao.nome = "João";
+			joao.nome = "João Vítor";
 			joao.senha = "1234";
 			joao.save();
 		}

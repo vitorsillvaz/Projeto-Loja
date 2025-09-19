@@ -22,7 +22,7 @@ public class Logins extends Controller {
 			flash.error("Login ou senha inválidos");
 			form();
 		} else {
-			session.put("usuarioLogado", usu.email);
+			session.put("usuarioLogado", usu.nome);
 			flash.success("Logado com sucesso!");
 			Produtos.form();
 		}

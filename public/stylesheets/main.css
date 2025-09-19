@@ -1,0 +1,15 @@
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+   }
+
+   body {
+     min-height: 100vh;         /* ocupa a tela toda */
+     display: flex;
+     flex-direction: column;    /* organiza em coluna */
+   }
+   main {
+       flex: 1;                   /* ocupa o espaço do meio */
+       padding: 20px;
+     }
