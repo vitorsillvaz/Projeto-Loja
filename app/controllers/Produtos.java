@@ -7,9 +7,12 @@ import java.util.*;
 import models.Categoria;
 import models.Produto;
 import models.Status;
+import security.Administrador;
+
 @With(Seguranca.class)
 public class Produtos extends Controller {
 
+	@Administrador
 	public static void form() {
 		List<Categoria> categorias = Categoria.findAll();
 		render(categorias);
@@ -36,7 +39,7 @@ public class Produtos extends Controller {
 
 		renderTemplate("Produtos/form.html", p, categorias);
 	}
-	
+	@Administrador
 	public static void salvar(Produto produto) {
 		if (produto.nomeProduto != null) {
 			produto.nomeProduto = produto.nomeProduto.toUpperCase();

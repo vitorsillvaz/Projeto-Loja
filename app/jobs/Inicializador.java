@@ -6,6 +6,7 @@ import models.Categoria;
 import models.Produto;
 import models.Status;
 import models.Usuario;
+import models.Perfil;
 import play.jobs.Job;
 import play.jobs.OnApplicationStart;
 
@@ -68,7 +69,15 @@ public class Inicializador extends Job{
 			joao.email = "j@gmail.com";
 			joao.nome = "João Vítor";
 			joao.senha = "1234";
+			joao.perfil = Perfil.ADMINISTRADOR;
 			joao.save();
+			
+			Usuario maria = new Usuario();
+			maria.email = "m@gmail.com";
+			maria.nome = "Maria";
+			maria.senha = "1234";
+			maria.perfil = Perfil.ASSISTENTE;
+			maria.save();
 		}
 			
 			

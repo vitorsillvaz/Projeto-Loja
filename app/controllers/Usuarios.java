@@ -8,14 +8,17 @@ import models.Usuario;
 import play.data.validation.Valid;
 import play.mvc.Controller;
 import play.mvc.With;
+import security.Administrador;
 
 @With(Seguranca.class)
 public class Usuarios extends Controller {
 	
+	@Administrador
 	public static void form() {
 		render();
 	}
 	
+	@Administrador
 	public static void salvar(Usuario usuario) {
 		usuario.save();
 		listar();
