@@ -32,7 +32,7 @@ public class Produtos extends Controller {
 	public static void detalhar(Produto produto) {
 		render(produto);
 	}
-
+	@Administrador
 	public static void editar(Long id) {
 		Produto p = Produto.findById(id);
 		List<Categoria> categorias = Categoria.findAll();
@@ -48,6 +48,7 @@ public class Produtos extends Controller {
 		detalhar(produto);
 
 	}
+	@Administrador
 	public static void remover(Long id) {
 		Produto produto = Produto.findById(id);
 		produto.status = Status.INATIVO;
