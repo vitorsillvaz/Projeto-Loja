@@ -20,81 +20,82 @@
 	<link rel="stylesheet" href="@{'/public/aroma-master/vendors/nice-select/nice-select.css'}">
 	<link rel="stylesheet" href="@{'/public/aroma-master/vendors/owl-carousel/owl.theme.default.min.css'}">
 	<link rel="stylesheet" href="@{'/public/aroma-master/vendors/owl-carousel/owl.carousel.min.css'}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" href="@{'/public/aroma-master/css/style.css'}">
 	<link rel="stylesheet" href="@{'/public/stylesheets/main.css'}">
 </head>
 
 <body>
 	<main>
-                    #{if flash.error}
-					  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-					    <strong>Algo deu errado:</strong> ${flash.error}
-					    <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"></button>
-					  </div>
-					#{/if}
-		    		
-		    		#{if flash.success}
-					  <div class="alert alert-success alert-dismissible fade show" role="alert">
-					    <strong>Sucesso!</strong> ${flash.success}
-					    <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"></button>
-					  </div>
-					#{/if}
-	<!--================ Start Header Menu Area =================-->
-	<header class="header_area">
-		<div class="main_menu">
-			<nav class="navbar navbar-expand-lg navbar-light">
-				<div class="container">
-					<a class="navbar-brand logo_h" href="#"><img src="@{'/public/images/logo.png'}" alt="logo"
-							width="150px" height="100px"></a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse"
-						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-						aria-expanded="false" aria-label="Toggle navigation">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-						<ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-							<li class="nav-item"><a class="nav-link" href="#">Início</a></li>
-							<li class="nav-item submenu dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-									aria-haspopup="true" aria-expanded="false">Produtos</a>
-								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="#">Categorias</a></li>
-									<li class="nav-item"><a class="nav-link" href="#">Marcas</a></li>
-									<li class="nav-item"><a class="nav-link" href="#">Novidades</a></li>
-									<li class="nav-item"><a class="nav-link" href="#">Ofertas</a></li>
-								</ul>
-							</li>
-							<li class="nav-item"><a class="nav-link" href="@{Produtos.form}">Cadastrar</a></li>
-							<li class="nav-item"><a class="nav-link" href="@{Produtos.listar}">Estoque</a></li>
-						</ul>
-                      
-						<ul class="nav-shop">
-							<i class="fa-solid fa-user"></i>
-							<li class="nav-item">				
-								
-								#{if session['usuarioLogado']}
-								
-									<p>${session['usuarioLogado']}</p>
-								 #{/if}
-							 </li>
-							<li class="nav-item">
-								<i class="fa-solid fa-right-from-bracket"></i>
-								<button><a class="nav-link" href="@{Logins.sair}">SAIR</a></button>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
+		#{if flash.error}
+		<div class="alert alert-danger alert-dismissible fade show" role="alert">
+			<strong>Algo deu errado:</strong> ${flash.error}
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		</div>
-	</header>
-	<!--================ End Header Menu Area =================-->
+		#{/if}
 
-	#{doLayout /}
+		#{if flash.success}
+		<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<strong>Sucesso!</strong> ${flash.success}
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		</div>
+		#{/if}
+		<!--================ Start Header Menu Area =================-->
+		<header class="header_area">
+			<div class="main_menu">
+				<nav class="navbar navbar-expand-lg navbar-light">
+					<div class="container">
+						<a class="navbar-brand logo_h" href="#"><img src="@{'/public/images/logo.png'}" alt="logo"
+								width="150px" height="100px"></a>
+						<button class="navbar-toggler" type="button" data-toggle="collapse"
+							data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+							aria-expanded="false" aria-label="Toggle navigation">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+							<ul class="nav navbar-nav menu_nav ml-auto mr-auto">
+								<li class="nav-item"><a class="nav-link" href="#">Início</a></li>
+								<li class="nav-item submenu dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+										aria-haspopup="true" aria-expanded="false">Produtos</a>
+									<ul class="dropdown-menu">
+										<li class="nav-item"><a class="nav-link" href="#">Categorias</a></li>
+										<li class="nav-item"><a class="nav-link" href="#">Marcas</a></li>
+										<li class="nav-item"><a class="nav-link" href="#">Novidades</a></li>
+										<li class="nav-item"><a class="nav-link" href="#">Ofertas</a></li>
+									</ul>
+								</li>
+								<li class="nav-item"><a class="nav-link" href="@{Produtos.form}">Cadastrar</a></li>
+								<li class="nav-item"><a class="nav-link" href="@{Produtos.listar}">Estoque</a></li>
+							</ul>
 
- </main>
+							<ul class="nav-shop">
+								<i class="fa-solid fa-user"></i>
+								<li class="nav-item">
+
+									#{if session['usuarioLogado']}
+
+									<p>${session['usuarioLogado']}</p>
+									#{/if}
+								</li>
+								<li class="nav-item">
+									<i class="fa-solid fa-right-from-bracket"></i>
+									<button><a class="nav-link" href="@{Logins.sair}">SAIR</a></button>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<!--================ End Header Menu Area =================-->
+
+		#{doLayout /}
+
+	</main>
 	<!--================ Start footer Area  =================-->
 	<footer class="footer">
 
@@ -125,9 +126,15 @@
 	<script src="@{'/public/aroma-master/vendors/jquery.ajaxchimp.min.js'}"></script>
 	<script src="@{'/public/aroma-master/vendors/mail-script.js'}"></script>
 	<script src="@{'/public/aroma-master/js/main.js'}"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+		crossorigin="anonymous"></script>
 </body>
 
 </html>

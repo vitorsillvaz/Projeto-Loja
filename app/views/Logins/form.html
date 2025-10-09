@@ -28,70 +28,53 @@
 </head>
 
 <body>
+	<main>
 	#{if flash.error}
 	<div class="alert alert-danger alert-dismissible fade show" role="alert">
 		<strong>Algo deu errado:</strong> ${flash.error}
-		<button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"></button>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+				aria-hidden="true">&times;</span></button>
 	</div>
 	#{/if}
 
 	#{if flash.success}
 	<div class="alert alert-success alert-dismissible fade show" role="alert">
 		<strong>Sucesso!</strong> ${flash.success}
-		<button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"></button>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+				aria-hidden="true">&times;</span></button>
 	</div>
 	#{/if}
-
 	<!--================Login Box Area =================-->
 	<section class="login_box_area section-margin">
-	  <div class="container">
-	    <div class="col-lg-6 login_form_inner">
-	      
-	      <h3>
-	        <img class="navbar-brand logo_h" src="@{'/public/images/logo.png'}" 
-	             alt="logo" width="150px" height="150px">
-	        <br>FAÇA LOGIN
-	      </h3>
-	      
-	      <form class="row login_form" action="@{Logins.logar}" id="contactForm" method="post">
-	        <div class="col-md-12 form-group" style="margin-bottom:20px;">
-	          <input type="text" class="form-control" id="name" name="email" 
-	                 placeholder="Informe seu email">
-	        </div>
-	        
-	        <div class="col-md-12 form-group" style="margin-bottom:20px;">
-	          <input type="password" class="form-control" id="name" name="senha"
-	                 placeholder="Informe sua senha">
-	        </div>
-	        
-	        <div class="col-md-12 form-group">
-	          <button type="submit" value="submit">ENTRAR</button>
-	          <a href="#">Esqueceu sua senha?</a>					
-	        </div>
-	      </form>
-	    </div>
-	  </div>
+		<div class="container">
+
+			<div class="col-lg-6 login_form_inner">
+
+				<img class="navbar-brand logo_h" src="@{'/public/images/logo.png'}" alt="logo" width="150px"
+					height="150px">
+				<br>
+				<h3>FAÇA LOGIN</h3>
+
+				<form class="row login_form" action="@{Logins.logar}" id="contactForm" method="post">
+					<div class="col-md-12 form-group" style="margin-bottom:20px;">
+						<input type="text" class="form-control" id="name" name="email" placeholder="Informe seu email">
+					</div>
+
+					<div class="col-md-12 form-group" style="margin-bottom:20px;">
+						<input type="password" class="form-control" id="name" name="senha"
+							placeholder="Informe sua senha">
+					</div>
+
+					<div class="col-md-12 form-group">
+						<button type="submit" value="submit">ENTRAR</button>
+						<a href="#">Esqueceu sua senha?</a>
+					</div>
+				</form>
+			</div>
+		</div>
 	</section>
 	<!--================End Login Box Area =================-->
-
-	<!--================ Start footer Area  =================-->
-		<footer class="footer">
-
-			<div class="footer-bottom">
-				<div class="container">
-					<div class="row d-flex">
-						<p class="col-lg-12 footer-text text-center">
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							Copyright &copy;
-							<script>document.write(new Date().getFullYear());</script> Todos os direitos reservados |
-							Template by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						</p>
-					</div>
-				</div>
-			</div>
-		</footer>
-		<!--================ End footer Area  =================-->
+	</main>
 
 
 	<script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript"
