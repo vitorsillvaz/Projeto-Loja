@@ -7,8 +7,6 @@
 
 <head>
 	<title>#{get 'title' /}</title>
-	<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
-	<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/login.css'}">
 	#{get 'moreStyles' /}
 	<link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
 
@@ -28,7 +26,6 @@
 </head>
 
 <body>
-	<main>
 	#{if flash.error}
 	<div class="alert alert-danger alert-dismissible fade show" role="alert">
 		<strong>Algo deu errado:</strong> ${flash.error}
@@ -44,37 +41,43 @@
 				aria-hidden="true">&times;</span></button>
 	</div>
 	#{/if}
-	<!--================Login Box Area =================-->
+	
+  
+  <!--================Login Box Area =================-->
 	<section class="login_box_area section-margin">
 		<div class="container">
-
-			<div class="col-lg-6 login_form_inner">
-
-				<img class="navbar-brand logo_h" src="@{'/public/images/logo.png'}" alt="logo" width="150px"
-					height="150px">
-				<br>
-				<h3>FAÇA LOGIN</h3>
-
-				<form class="row login_form" action="@{Logins.logar}" id="contactForm" method="post">
-					<div class="col-md-12 form-group" style="margin-bottom:20px;">
-						<input type="text" class="form-control" id="name" name="email" placeholder="Informe seu email">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="login_box_img">
+						<div class="hover">
+							<h4>Novo por aqui?</h4>
+							<p>Faça seu cadastro em nosso sistema</p>
+							<a class="button button-account" href="register.html">Criar conta</a>
+						</div>
 					</div>
-
-					<div class="col-md-12 form-group" style="margin-bottom:20px;">
-						<input type="password" class="form-control" id="name" name="senha"
-							placeholder="Informe sua senha">
+				</div>
+				<div class="col-lg-6">
+					<div class="login_form_inner">
+						<h3>Faça login para entrar</h3>
+						<form class="row login_form" action="@{Logins.logar}" id="contactForm" >
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="name" name="email" placeholder="Seu email" >
+							</div>
+							<div class="col-md-12 form-group">
+								<input type="password" class="form-control" id="name" name="senha" placeholder="Informe sua senha">
+							</div>
+						
+							<div class="col-md-12 form-group">
+								<button type="submit" value="submit" class="button button-login w-100">Logar</button>
+								<a href="#">Esqueceu sua senha?</a>
+							</div>
+						</form>
 					</div>
-
-					<div class="col-md-12 form-group">
-						<button type="submit" value="submit">ENTRAR</button>
-						<a href="#">Esqueceu sua senha?</a>
-					</div>
-				</form>
+				</div>
 			</div>
 		</div>
 	</section>
 	<!--================End Login Box Area =================-->
-	</main>
 
 
 	<script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript"
