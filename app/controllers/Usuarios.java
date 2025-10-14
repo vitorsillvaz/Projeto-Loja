@@ -24,7 +24,7 @@ public class Usuarios extends Controller {
 			return;
 		}
 		// Verifica se o e-mail contém "@"
-	    if (usuario.email == null || !usuario.email.contains("@")) {
+	    if (usuario.email == null || !usuario.email.contains("@" + ".com")) {
 	        flash.error("O e-mail inválido!");
 	        form();
 	        return;
