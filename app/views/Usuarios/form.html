@@ -1,4 +1,4 @@
-#{set title:'Login' /}
+#{set title:'Usuarios' /}
 
 
 <!DOCTYPE html>
@@ -41,36 +41,40 @@
 				aria-hidden="true">&times;</span></button>
 	</div>
 	#{/if}
-	
-  
-  <!--================Login Box Area =================-->
+
+	<!--================Login Box Area =================-->
 	<section class="login_box_area section-margin">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="login_box_img">
 						<div class="hover">
-							<h4>Novo por aqui?</h4>
-							<p>Faça seu cadastro em nosso sistema</p>
-							<a class="button button-account" href="@{Usuarios.form}">Criar conta</a>
+							<h4>Já está cadastrado(a)?</h4>
+							<p>Se você já estiver cadastrado(a), clique no botão abaixo para entrar no sistema.</p>
+							<a class="button button-account" href="@{Logins.form}">Logar</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-6">
-					<div class="login_form_inner">
-						<h3>Faça login para entrar</h3>
-						<form class="row login_form" action="@{Logins.logar}" id="contactForm" >
+					<div class="login_form_inner register_form_inner">
+						<h3>Criar conta</h3>
+						<form class="row login_form" action="@{Usuarios.salvar}" id="register_form">
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="email" placeholder="Seu email" >
+								<input type="text" class="form-control" id="name" name="usuario.nome"
+									placeholder="Nome completo">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="name" name="senha" placeholder="Informe sua senha">
+								<input type="email" class="form-control" id="email" name="usuario.email"
+									placeholder="Email">
 							</div>
-						
+							<div class="col-md-12 form-group">
+								<input type="password" class="form-control" id="password" name="usuario.senha"
+									placeholder="Password">
+							</div>
+							
 							<div class="col-md-12 form-group">
 								<button type="submit" value="submit"
-								 class="button button-login w-100">Logar</button>
-								<a href="#">Esqueceu sua senha?</a>
+									class="button button-register w-100">Cadastrar</button>
 							</div>
 						</form>
 					</div>
