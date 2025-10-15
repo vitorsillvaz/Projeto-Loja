@@ -6,42 +6,36 @@
 <html>
 
 <head>
-	<title>#{get 'title' /}</title>
-	#{get 'moreStyles' /}
-	<link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+<title>#{get 'title' /}</title> #{get 'moreStyles' /}
+<link rel="shortcut icon" type="image/png"
+	href="@{'/public/images/favicon.png'}">
 
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="icon" href="@{'/public/aroma-master/img/Fevicon.png'}" type="image/png">
-	<link rel="stylesheet" href="@{'/public/aroma-master/vendors/bootstrap/bootstrap.min.css'}">
-	<link rel="stylesheet" href="@{'/public/aroma-master/vendors/fontawesome/css/all.min.css'}">
-	<link rel="stylesheet" href="@{'/public/aroma-master/vendors/themify-icons/themify-icons.css'}">
-	<link rel="stylesheet" href="@{'/public/aroma-master/vendors/nice-select/nice-select.css'}">
-	<link rel="stylesheet" href="@{'/public/aroma-master/vendors/owl-carousel/owl.theme.default.min.css'}">
-	<link rel="stylesheet" href="@{'/public/aroma-master/vendors/owl-carousel/owl.carousel.min.css'}">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link rel="stylesheet" href="@{'/public/aroma-master/css/style.css'}">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="icon" href="@{'/public/aroma-master/img/Fevicon.png'}"
+	type="image/png">
+<link rel="stylesheet"
+	href="@{'/public/aroma-master/vendors/bootstrap/bootstrap.min.css'}">
+<link rel="stylesheet"
+	href="@{'/public/aroma-master/vendors/fontawesome/css/all.min.css'}">
+<link rel="stylesheet"
+	href="@{'/public/aroma-master/vendors/themify-icons/themify-icons.css'}">
+<link rel="stylesheet"
+	href="@{'/public/aroma-master/vendors/nice-select/nice-select.css'}">
+<link rel="stylesheet"
+	href="@{'/public/aroma-master/vendors/owl-carousel/owl.theme.default.min.css'}">
+<link rel="stylesheet"
+	href="@{'/public/aroma-master/vendors/owl-carousel/owl.carousel.min.css'}">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="@{'/public/aroma-master/css/style.css'}">
 </head>
 
 <body>
-	#{if flash.error}
-	<div class="alert alert-danger alert-dismissible fade show" role="alert">
-		<strong>Algo deu errado:</strong> ${flash.error}
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-				aria-hidden="true">&times;</span></button>
-	</div>
-	#{/if}
-
-	#{if flash.success}
-	<div class="alert alert-success alert-dismissible fade show" role="alert">
-		<strong>Sucesso!</strong> ${flash.success}
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-				aria-hidden="true">&times;</span></button>
-	</div>
-	#{/if}
-
+	#{form @Usuarios.salvar()}
 	<!--================Login Box Area =================-->
 	<section class="login_box_area section-margin">
 		<div class="container">
@@ -50,30 +44,39 @@
 					<div class="login_box_img">
 						<div class="hover">
 							<h4>Já está cadastrado(a)?</h4>
-							<p>Se você já estiver cadastrado(a), clique no botão abaixo para entrar no sistema.</p>
+							<p>Se você já estiver cadastrado(a), clique no botão abaixo
+								para entrar no sistema.</p>
 							<a class="button button-account" href="@{Logins.form}">Logar</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<div class="login_form_inner register_form_inner">
-						<img src="@{'/public/images/user.png'}" alt="logo"
-															width="80px" height="80px">
+						<img src="@{'/public/images/user.png'}" alt="logo" width="80px"
+							height="80px">
 						<h3>Criar conta</h3>
-						<form class="row login_form" action="@{Usuarios.salvar}" id="register_form">
+						<form class="row login_form" action="@{Usuarios.salvar}"
+							id="register_form">
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="usuario.nome"
-									placeholder="Nome completo">
-							</div>
-							<div class="col-md-12 form-group">
-								<input type="email" class="form-control" id="email" name="usuario.email"
-									placeholder="Seu Email">
-							</div>
-							<div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="password" name="usuario.senha"
-									placeholder="Criar Senha">
+								<input type="text" 
+								       class="form-control" id="name"
+									   name="usuario.nome" 
+									   value="${flash['usuario.nome']}" placeholder="Nome completo"> 
+								<span class="error">#{error 'usuario.nome' /}</span>
 							</div>
 							
+							<div class="col-md-12 form-group">
+								<input type="email" class="form-control" id="email"
+									name="usuario.email" value="${flash['usuario.email']}" placeholder="Seu Email">
+									<span class="error">#{error 'usuario.email' /}</span>
+							</div>
+							
+							<div class="col-md-12 form-group">
+								<input type="password" class="form-control" id="password"
+									name="usuario.senha" value="${flash['usuario.senha']}" placeholder="Criar Senha">
+									<span class="error">#{error 'usuario.senha' /}</span>
+							</div>
+
 							<div class="col-md-12 form-group">
 								<button type="submit" value="submit"
 									class="button button-register w-100">Cadastrar</button>
@@ -85,26 +88,34 @@
 		</div>
 	</section>
 	<!--================End Login Box Area =================-->
+	#{/form}
 
 
-	<script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript"
-		charset="${_response_encoding}"></script>
+
+	<script src="@{'/public/javascripts/jquery-1.6.4.min.js'}"
+		type="text/javascript" charset="${_response_encoding}"></script>
 	#{get 'moreScripts' /}
-	<script src="@{'/public/aroma-master/vendors/jquery/jquery-3.2.1.min.js'}"></script>
-	<script src="@{'/public/aroma-master/vendors/bootstrap/bootstrap.bundle.min.js'}"></script>
+	<script
+		src="@{'/public/aroma-master/vendors/jquery/jquery-3.2.1.min.js'}"></script>
+	<script
+		src="@{'/public/aroma-master/vendors/bootstrap/bootstrap.bundle.min.js'}"></script>
 	<script src="@{'/public/aroma-master/vendors/skrollr.min.js'}"></script>
-	<script src="@{'/public/aroma-master/vendors/owl-carousel/owl.carousel.min.js'}"></script>
-	<script src="@{'/public/aroma-master/vendors/nice-select/jquery.nice-select.min.js'}"></script>
+	<script
+		src="@{'/public/aroma-master/vendors/owl-carousel/owl.carousel.min.js'}"></script>
+	<script
+		src="@{'/public/aroma-master/vendors/nice-select/jquery.nice-select.min.js'}"></script>
 	<script src="@{'/public/aroma-master/vendors/jquery.ajaxchimp.min.js'}"></script>
 	<script src="@{'/public/aroma-master/vendors/mail-script.js'}"></script>
 	<script src="@{'/public/aroma-master/js/main.js'}"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
 		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
 		crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 		crossorigin="anonymous"></script>
 </body>
