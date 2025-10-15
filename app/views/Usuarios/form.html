@@ -32,10 +32,10 @@
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="@{'/public/aroma-master/css/style.css'}">
+<link rel="stylesheet" href="@{'/public/stylesheets/usuario.css'}">
 </head>
 
 <body>
-	#{form @Usuarios.salvar()}
 	<!--================Login Box Area =================-->
 	<section class="login_box_area section-margin">
 		<div class="container">
@@ -57,6 +57,7 @@
 						<h3>Criar conta</h3>
 						<form class="row login_form" action="@{Usuarios.salvar}"
 							id="register_form">
+							#{form @Usuarios.salvar()}
 							<div class="col-md-12 form-group">
 								<input type="text" 
 								       class="form-control" id="name"
@@ -81,6 +82,7 @@
 								<button type="submit" value="submit"
 									class="button button-register w-100">Cadastrar</button>
 							</div>
+							#{/form}
 						</form>
 					</div>
 				</div>
@@ -88,7 +90,7 @@
 		</div>
 	</section>
 	<!--================End Login Box Area =================-->
-	#{/form}
+	
 
 
 

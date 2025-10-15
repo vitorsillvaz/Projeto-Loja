@@ -1,5 +1,6 @@
 package controllers;
 import play.*;
+import play.data.validation.Valid;
 import play.mvc.*;
 import java.util.List;
 import java.util.*;
@@ -40,8 +41,14 @@ public class Produtos extends Controller {
 		renderTemplate("Produtos/form.html", p, categorias);
 	}
 	@Administrador
-	public static void salvar(Produto produto) {
-		
+	public static void salvar(@Valid Produto produto) {
+		if (validation.hasErrors()) {
+			params.flash();
+			validation.keep();
+			form();
+		}
+
+		render(produto);
 		produto.save();
 		detalhar(produto);
 

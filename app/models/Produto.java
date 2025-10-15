@@ -11,11 +11,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import play.data.validation.Required;
 import play.db.jpa.Model;
 
 @Entity
 public class Produto extends Model {
+	@Required
 	public String nomeProduto;
+	
+	@Required
 	public double preco;
 	
 	@ManyToOne
