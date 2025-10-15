@@ -41,8 +41,20 @@ public class Produtos extends Controller {
 	}
 	@Administrador
 	public static void salvar(Produto produto) {
-		if (produto.nomeProduto != null) {
-			produto.nomeProduto = produto.nomeProduto.toUpperCase();
+		if (produto.nomeProduto == null || produto.nomeProduto.trim().isEmpty()) {
+			flash.error("Informe o nome do produto!");
+			form();
+			return;
+		}
+		if(produto.preco < 0){
+			flash.error("Informe um preço válido!");
+			form();
+			return;
+		}
+		if (produto.categoria == null) {
+			flash.error("Informe a categoria do produto!");
+			form();
+			return;
 		}
 		produto.save();
 		detalhar(produto);

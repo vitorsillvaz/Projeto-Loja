@@ -8,36 +8,38 @@ import models.Usuario;
 import play.data.validation.Valid;
 import play.mvc.Controller;
 import play.mvc.With;
-import security.Administrador;
 
-@With(Seguranca.class)
 public class Usuarios extends Controller {
 	
-	@Administrador
 	public static void form() {
 		render();
 	}
 	
-	@Administrador
 	public static void salvar(Usuario usuario) {
+		
+		// Verifica se o nome está vazio
+		if(usuario.nome == null || usuario.nome.trim().isEmpty() || usuario.senha.length() < 8) {
+			flash.error("Por favor, informe seu nome completo!");
+			form();
+			return;
+		}
+		// Verifica se o e-mail contém "@"
+	    if (usuario.email == null || !usuario.email.contains("@" + ".com")) {
+	        flash.error("O e-mail inválido!");
+	        form();
+	        return;
+	    }
+		// Verifica se a senha tem pelo menos 6 caracteres
+	    if (usuario.senha == null || usuario.senha.length() < 6) {
+	        flash.error("A senha deve ter pelo menos 6 caracteres!");
+	        form();
+	        return;
+	    }
+	    
 		usuario.save();
-		listar();
-	}
-	
-	public static void editar(Long id) {
-		Usuario usuario = Usuario.findById(id);
-		renderTemplate("Usuarios/form.html", usuario);
-	}
-	
-	public static void remover(Long id) {
-		Usuario usuario = Usuario.findById(id);
-		usuario.delete();
-		listar();
-	}
-	
-	
-	public static void listar() {
-		List<Usuario> usuarios = Usuario.findAll();
-		render(usuarios);
+		flash.success("Usuário cadastrado!");
+		form();
+		
+
 	}
 }
