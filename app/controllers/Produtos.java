@@ -47,11 +47,9 @@ public class Produtos extends Controller {
 			validation.keep();
 			form();
 		}
-
-		render(produto);
 		produto.save();
 		detalhar(produto);
-
+        
 	}
 	@Administrador
 	public static void remover(Long id) {

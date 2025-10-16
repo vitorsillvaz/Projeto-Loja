@@ -36,6 +36,25 @@
 </head>
 
 <body>
+	#{if flash.error}
+	<div class="alert alert-danger alert-dismissible fade show"
+		role="alert">
+		<strong>Algo deu errado:</strong> ${flash.error}
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	#{/if} #{if flash.success}
+	<div class="alert alert-success alert-dismissible fade show"
+		role="alert">
+		<strong>Sucesso!</strong> ${flash.success}
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	#{/if}
 	<!--================Login Box Area =================-->
 	<section class="login_box_area section-margin">
 		<div class="container">
@@ -59,23 +78,24 @@
 							id="register_form">
 							#{form @Usuarios.salvar()}
 							<div class="col-md-12 form-group">
-								<input type="text" 
-								       class="form-control" id="name"
-									   name="usuario.nome" 
-									   value="${flash['usuario.nome']}" placeholder="Nome completo"> 
-								<span class="error">#{error 'usuario.nome' /}</span>
+								<input type="text" class="form-control" id="name"
+									name="usuario.nome" value="${flash['usuario.nome']}"
+									placeholder="Nome completo"> <span class="error">#{error
+									'usuario.nome' /}</span>
 							</div>
-							
+
 							<div class="col-md-12 form-group">
 								<input type="email" class="form-control" id="email"
-									name="usuario.email" value="${flash['usuario.email']}" placeholder="Seu Email">
-									<span class="error">#{error 'usuario.email' /}</span>
+									name="usuario.email" value="${flash['usuario.email']}"
+									placeholder="Seu Email"> <span class="error">#{error
+									'usuario.email' /}</span>
 							</div>
-							
+
 							<div class="col-md-12 form-group">
 								<input type="password" class="form-control" id="password"
-									name="usuario.senha" value="${flash['usuario.senha']}" placeholder="Criar Senha">
-									<span class="error">#{error 'usuario.senha' /}</span>
+									name="usuario.senha" value="${flash['usuario.senha']}"
+									placeholder="Criar Senha"> <span class="error">#{error
+									'usuario.senha' /}</span>
 							</div>
 
 							<div class="col-md-12 form-group">
@@ -90,7 +110,7 @@
 		</div>
 	</section>
 	<!--================End Login Box Area =================-->
-	
+
 
 
 

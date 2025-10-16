@@ -22,8 +22,6 @@ public class Usuarios extends Controller {
 			form();
 		}
 
-		render(usuario);
-
 		usuario.save();
 		flash.success("Usuário cadastrado!");
 		form();
