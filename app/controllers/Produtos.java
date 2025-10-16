@@ -40,6 +40,19 @@ public class Produtos extends Controller {
     public static void detalhar(Produto produto) {
         render(produto);
     }
+    
+    public static void inicio(String termo) {
+    	List<Produto> produtos;
+        if (termo == null || termo.trim().isEmpty()) {
+            produtos = Produto.find("status <> ?1", Status.INATIVO).fetch();
+        } else {
+            produtos = Produto.find(
+                "(lower(nomeProduto) like ?1 or lower(categoria.categoria) like ?1) and status <> ?2",
+                "%" + termo.toLowerCase() + "%", Status.INATIVO
+            ).fetch();
+        }
+        render(produtos, termo);
+    }
 
     @Administrador
     public static void editar(Long id) {
