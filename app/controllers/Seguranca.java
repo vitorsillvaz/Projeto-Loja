@@ -7,7 +7,6 @@ import java.util.*;
 import security.Administrador;
 
 public class Seguranca extends Controller {
-	
 	@Before
 	static void verificarAutenticacao() {
 		if (!session.contains("usuarioLogado")) {
@@ -15,6 +14,8 @@ public class Seguranca extends Controller {
 			Logins.form();
 		}
 	}
+	
+	
 	@Before
  	static void verificarAdministrador() {
   	    String perfil = session.get("usuarioPerfil");

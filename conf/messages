@@ -3,3 +3,4 @@
 #
 
 validation.required=Campo obrigatório
+validation.min=Campo inválido

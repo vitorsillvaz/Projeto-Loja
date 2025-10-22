@@ -5,6 +5,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 
+import play.data.validation.Min;
 import play.data.validation.Required;
 import play.db.jpa.Blob;
 import play.db.jpa.Model;
@@ -16,6 +17,7 @@ public class Produto extends Model {
     public String nomeProduto;
 
     @Required
+    @Min(1)
     public double preco;
 
     @ManyToOne
