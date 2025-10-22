@@ -1,54 +1,104 @@
 package controllers;
+
 import play.*;
+import play.data.validation.Valid;
+import play.db.jpa.Blob;
+import play.libs.MimeTypes;
 import play.mvc.*;
 import java.util.List;
-import java.util.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 import models.Categoria;
 import models.Produto;
 import models.Status;
+import security.Administrador;
 
+@With(Seguranca.class)
 public class Produtos extends Controller {
 
-	public static void form() {
-		List<Categoria> categorias = Categoria.findAll();
-		render(categorias);
-	}
+    @Administrador
+    public static void form() {
+        List<Categoria> categorias = Categoria.findAll();
+        render(categorias);
+    }
 
-	public static void listar(String termo) {
-		List<Produto> produtos = null;
-		if (termo == null) {
-			produtos = Produto.find("status <> ?1", Status.INATIVO).fetch();
-		} else {
-			produtos = Produto.find("(lower(nomeProduto) like ?1 " + "or lower(categoria.categoria) like ?1) and status <> ?2",
-					"%" + termo.toLowerCase() + "%", Status.INATIVO).fetch();
-		}
-		render(produtos, termo);
-	}
+    public static void listar(String termo) {
+        List<Produto> produtos;
+        if (termo == null || termo.trim().isEmpty()) {
+            produtos = Produto.find("status <> ?1", Status.INATIVO).fetch();
+        } else {
+            produtos = Produto.find(
+                "(lower(nomeProduto) like ?1 or lower(categoria.categoria) like ?1) and status <> ?2",
+                "%" + termo.toLowerCase() + "%", Status.INATIVO
+            ).fetch();
+        }
+        render(produtos, termo);
+    }
 
-	public static void detalhar(Produto produto) {
-		render(produto);
-	}
+    public static void detalhar(Produto produto) {
+        render(produto);
+    }
+    
+    public static void inicio(String termo) {
+    	List<Produto> produtos;
+        if (termo == null || termo.trim().isEmpty()) {
+            produtos = Produto.find("status <> ?1", Status.INATIVO).fetch();
+        } else {
+            produtos = Produto.find(
+                "(lower(nomeProduto) like ?1 or lower(categoria.categoria) like ?1) and status <> ?2",
+                "%" + termo.toLowerCase() + "%", Status.INATIVO
+            ).fetch();
+        }
+        render(produtos, termo);
+    }
 
-	public static void editar(Long id) {
-		Produto p = Produto.findById(id);
-		List<Categoria> categorias = Categoria.findAll();
+    @Administrador
+    public static void editar(Long id) {
+        Produto p = Produto.findById(id);
+        List<Categoria> categorias = Categoria.findAll();
+        renderTemplate("Produtos/form.html", p, categorias);
+    }
 
-		renderTemplate("Produtos/form.html", p, categorias);
-	}
-	
-	public static void salvar(Produto produto) {
-		if (produto.nomeProduto != null) {
-			produto.nomeProduto = produto.nomeProduto.toUpperCase();
-		}
-		produto.save();
-		detalhar(produto);
+    @Administrador
+    public static void salvar(@Valid Produto produto, File foto) throws FileNotFoundException {
+        if (validation.hasErrors()) {
+            params.flash();
+            validation.keep();
+            form();
+            return;
+        }
 
-	}
-	public static void remover(Long id) {
-		Produto produto = Produto.findById(id);
-		produto.status = Status.INATIVO;
-		produto.save();
-		listar(null);
-	}
+        // Faz upload da imagem somente se o arquivo existir
+        if (foto != null) {
+            produto.photofileName = foto.getName();
+            produto.foto = new Blob();
+            produto.foto.set(new FileInputStream(foto), MimeTypes.getContentType(foto.getName()));
+        }
+
+        produto.save();
+        detalhar(produto);
+    }
+
+    public static void produtoFoto(Long id) {
+        Produto produto = Produto.findById(id);
+        notFoundIfNull(produto);
+        if (produto.foto != null) {
+            response.setContentTypeIfNotSet(produto.foto.type());
+            renderBinary(produto.foto.get());
+        } else {
+            notFound("Produto sem imagem");
+        }
+    }
+
+    @Administrador
+    public static void remover(Long id) {
+        Produto produto = Produto.findById(id);
+        if (produto != null) {
+            produto.status = Status.INATIVO;
+            produto.save();
+        }
+        listar(null);
+    }
 }

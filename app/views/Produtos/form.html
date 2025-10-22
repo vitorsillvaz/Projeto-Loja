@@ -1,40 +1,49 @@
-#{extends 'main.html' /}
-#{set title:'Cadastro de Produto' /}
+#{extends 'main.html' /} #{set title:'Cadastro de Produto' /}
 
 <!--================Login Box Area =================-->
 <section class="login_box_area section-margin">
 	<div class="container" id="registrar">
-
 		<div class="row">
 			<div class="col-lg-6" style="margin: 0 auto;">
 				<div class="login_form_inner register_form_inner">
-					<h3>Cadastrar produto no Site</h3>
-					<form class="row login_form" action="@{Produtos.salvar}" id="register_form">
-						<input type="hidden" name="produto.id" value="${p?.id}" />
+					<h3>Cadastrar produto</h3>
+					<form class="row login_form" action="@{Produtos.salvar}"
+						id="register_form" enctype="multipart/form-data" method="post">
+						<input type="hidden" name="produto.id" value="${p?.id}" /> 
+						#{form @Produtos.salvar()}
+						<div class="col-md-12 form-group">
+							<input type="text" class="form-control" id="name"
+								name="produto.nomeProduto" placeholder="Nome do produto"
+								value="${flash['produto.nomeProduto'] ? flash['produto.nomeProduto'] : p?.nomeProduto}">
+							<span class="error">#{error 'produto.nomeProduto' /}</span>
+						</div>
 
 						<div class="col-md-12 form-group">
-							<input type="text" class="form-control" id="name" name="produto.nomeProduto"
-								value="${p?.nomeProduto}" placeholder="Nome do produto">
+							<input type="text" class="form-control" id="email"
+								name="produto.preco" placeholder="Valor do produto"
+								value="${flash['produto.preco'] ? flash['produto.preco'] : p?.preco}">
+							<span class="error">#{error 'produto.preco' /}</span>
 						</div>
-						<div class="col-md-12 form-group">
-							<input type="text" class="form-control" id="email" name="produto.preco" value="${p?.preco}"
-								placeholder="Valor do produto">
-						</div>
-						<div class="col-md-12 form-group">
 
-						<select class="form-select" name="produto.categoria.id">
-			     			<option value="Categoria">Categoria</option>
-								#{list items:categorias, as:'c'}
-								<option value="${c.id}"> ${c.id==p?.categoria?.id ? 'selected' : '' }>
-								${c.categoria}
-							    </option>
-								#{/list}
-						</select>
-				    	</div>
+						<div class="col-md-12 form-group">
+							Imagem do produto: <input type="file" class="form-control"
+								id="email" name="foto"> <span class="error">#{error
+								'produto.foto' /}</span>
+						</div>
+
+						<div class="col-md-12 form-group">
+							Categoria: <select class="form-select"
+								name="produto.categoria.id">
+								<option value="" disabled selected>Selecione</option> #{list
+								items:categorias, as:'c'}
+								<option value="${c.id}">${c.categoria}</option> #{/list}
+							</select>
+						</div>
 						<div class="col-md-12 form-group">
 							<button type="submit" value="submit ${p ? 'Editar':'Cadastrar'}"
 								class="button button-register w-100">Register</button>
 						</div>
+						#{/form}
 					</form>
 				</div>
 			</div>

@@ -11,19 +11,33 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import play.data.validation.Email;
+import play.data.validation.Min;
+import play.data.validation.Required;
 import play.db.jpa.Model;
 import play.libs.Crypto;
 
 @Entity
 public class Usuario extends Model {
+	@Required
 	public String nome;
+
+	@Email
+	@Required
 	public String email;
+	
+	@Required
+	@Min(6)
 	public String senha;
 	
+	@Enumerated(EnumType.STRING)
+	public Status status;
 	
-	public void setSenha(String senha) {
-		this.senha = Crypto.passwordHash(senha);
+	@Enumerated(EnumType.STRING)
+	public Perfil perfil;
+	
+	public Usuario() {
+		this.status = Status.ATIVO;
+		this.perfil = Perfil.ASSISTENTE;
 	}
-	
-	
 }
