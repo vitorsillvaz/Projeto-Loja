@@ -79,6 +79,9 @@ main {
 .search-box .right-icons i:hover {
 	color: #000;
 }
+.section-intro{
+	margin-top:30px;
+}
 
 footer {
     background-color: #f8f9fa; /* ou a cor que preferir */
