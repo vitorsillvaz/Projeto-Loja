@@ -20,6 +20,7 @@
         <table class="table">
           <thead>
             <tr>
+			  <th scope="col"><i class="fa-solid fa-image"></i></th>
               <th scope="col">Produto</th>
               <th scope="col">Categoria</th>
               <th scope="col">Preço</th>
@@ -31,7 +32,11 @@
             #{list items: produtos, as:'p'}
             <tr>
               <td>
-                ${p.nomeProduto}
+                   <img src="@{Produtos.produtoFoto(p.id)}" width="25px" height="25px" alt="img"/>
+              </td>
+              <td>
+				         
+                 ${p.nomeProduto}
               </td>
               <td>
 				${p.categoria.categoria} 

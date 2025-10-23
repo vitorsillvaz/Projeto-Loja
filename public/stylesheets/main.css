@@ -25,7 +25,9 @@ main {
 	/* ocupa o espaço do meio */
 	padding: 20px;
 }
-
+.error{
+	color:red;
+}
 .form-select {
 	border-radius: 5px;
 	text-align: left;
