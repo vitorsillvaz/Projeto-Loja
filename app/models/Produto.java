@@ -15,10 +15,10 @@ public class Produto extends Model {
 
     @Required
     public String nomeProduto;
-
-    @Required
+    
     @Min(1)
-    public double preco;
+    @Required
+    public Double preco;
 
     @ManyToOne
     public Categoria categoria;
