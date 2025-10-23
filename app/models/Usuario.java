@@ -13,6 +13,7 @@ import javax.persistence.TemporalType;
 
 import play.data.validation.Email;
 import play.data.validation.Min;
+import play.data.validation.MinSize;
 import play.data.validation.Required;
 import play.db.jpa.Model;
 import play.libs.Crypto;
@@ -20,22 +21,23 @@ import play.libs.Crypto;
 @Entity
 public class Usuario extends Model {
 	@Required
+	@MinSize(10)
 	public String nome;
 
 	@Email
 	@Required
 	public String email;
-	
+
 	@Required
-	@Min(6)
+	@MinSize(6)
 	public String senha;
-	
-	@Enumerated(EnumType.STRING)
-	public Status status;
 	
 	@Enumerated(EnumType.STRING)
 	public Perfil perfil;
 	
+	@Enumerated(EnumType.STRING)
+	public Status status;
+
 	public Usuario() {
 		this.status = Status.ATIVO;
 		this.perfil = Perfil.ASSISTENTE;

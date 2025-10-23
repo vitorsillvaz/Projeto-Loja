@@ -22,7 +22,8 @@ public class Seguranca extends Controller {
   	    Administrador adminAnnotation = getActionAnnotation(Administrador.class);
   	    if (adminAnnotation != null && 
 		  !Perfil.ADMINISTRADOR.name().equals(perfil)) {
-          forbidden("Acesso restrito aos administradores do sistema");
+  	    	flash.error("Acesso restrito aos administradores do sistema.");
+  	    	Produtos.listar(null);
   	    }
  	}
 }

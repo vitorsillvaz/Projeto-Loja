@@ -24,14 +24,7 @@
 								value="${flash['produto.preco'] ? flash['produto.preco'] : p?.preco}">
 							<span class="error">#{error 'produto.preco' /}</span>
 						</div>
-
-						<div class="col-md-12 form-group">
-							Imagem do produto: <input type="file" class="form-control"
-								id="email" name="foto"> <span class="error">#{error
-								'produto.foto' /}</span>
-						</div>
-
-						<div class="col-md-12 form-group">
+						<div class="col-md-12 form-group sel">
 							Categoria: <select class="form-select"
 								name="produto.categoria.id">
 								<option value="" disabled selected>Selecione</option> #{list
@@ -39,6 +32,13 @@
 								<option value="${c.id}">${c.categoria}</option> #{/list}
 							</select>
 						</div>
+
+						<div class="col-md-12 form-group">
+							Imagem do produto: <input type="file" class="form-control"
+								id="email" name="foto"> <span class="error">#{error
+								'produto.foto' /}</span>
+						</div>
+
 						<div class="col-md-12 form-group">
 							<button type="submit" value="submit ${p ? 'Editar':'Cadastrar'}"
 								class="button button-register w-100">Register</button>

@@ -3,31 +3,35 @@
 
 <!-- ================ top product area start ================= -->
 <section class="related-product-area">
-    <div class="container">
-        <div class="section-intro pb-60px">
-            <p>Veja abaixo os protudos cadastrados</p>
-            <h2>Todos os <span class="section-intro__style">Produtos</span></h2>
-        </div>
-
-        <div class="row mt-30">
-            #{list items: produtos, as:'p'}
-            <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
-                <div class="single-search-product-wrapper">
-                    <div class="single-search-product d-flex">
-                        <!-- Aqui você deve colocar o caminho correto da imagem -->
-                        <a href="#"><img src="@{Produtos.produtoFoto(p.id)}"/></a>
-                        <div class="desc">
-                            <!-- Passando o id do produto para o detalhar -->
-                            <a href="@{Produtos.detalhar(p.id)}" class="title">${p.nomeProduto}</a>
-							<p>${p.categoria.categoria} </p>
-                            <div class="price">R$ ${p.preco}</div>
-							
-                        </div>
-                    </div>
-                </div>
-            </div>
-            #{/list}
-        </div>
-    </div>
+	<div class="container">
+		<div class="section-intro pb-60px">
+			<p>Veja abaixo os produtos cadastrados</p>
+			<h2>Todos os <span class="section-intro__style">Produtos</span></h2>
+		</div>
+		
+		<div class="row mt-30">
+			#{list items: produtos, as:'p'}
+			<div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
+				<div class="single-search-product-wrapper">
+					<div class="single-search-product d-flex">
+						<!-- Aqui você deve colocar o caminho correto da imagem -->
+						<img src="@{Produtos.produtoFoto(p.id)}" width="150px" height="100px"/>
+						
+						<div class="desc">
+							<!-- Passando o id do produto para o detalhar -->
+							<a href="@{Produtos.detalhar(p.id)}" class="title">${p.nomeProduto}</a>
+							<p>
+								#{if p.categoria}
+								${p.categoria.categoria}
+								#{/if}
+							</p>
+							<div class="price">R$ ${p.preco}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			#{/list}
+		</div>
+	</div>
 </section>
 <!-- ================ top product area end ================= -->

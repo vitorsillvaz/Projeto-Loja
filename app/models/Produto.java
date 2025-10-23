@@ -13,29 +13,29 @@ import play.db.jpa.Model;
 @Entity
 public class Produto extends Model {
 
-    @Required
-    public String nomeProduto;
-    
-    @Min(1)
-    @Required
-    public Double preco;
+	@Required
+	@Min(5)
+	public String nomeProduto;
 
-    @ManyToOne
-    public Categoria categoria;
+	@Required
+	public Double preco;
 
-    @Enumerated(EnumType.STRING)
-    public Status status;
+	@ManyToOne
+	public Categoria categoria;
 
-    public Blob foto;
-    public String photofileName;
+	@Enumerated(EnumType.STRING)
+	public Status status;
 
-    public Produto() {
-        this.status = Status.ATIVO;
-    }
+	public Blob foto;
+	public String photofileName;
 
-    public Produto(String nomeProduto, double preco) {
-        this.nomeProduto = nomeProduto;
-        this.preco = preco;
-        this.status = Status.ATIVO;
-    }
+	public Produto() {
+		this.status = Status.ATIVO;
+	}
+
+	public Produto(String nomeProduto, double preco) {
+		this.nomeProduto = nomeProduto;
+		this.preco = preco;
+		this.status = Status.ATIVO;
+	}
 }
