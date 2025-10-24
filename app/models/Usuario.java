@@ -24,8 +24,9 @@ public class Usuario extends Model {
 	@MinSize(10)
 	public String nome;
 
-	@Email
+	
 	@Required
+	@Email
 	public String email;
 
 	@Required

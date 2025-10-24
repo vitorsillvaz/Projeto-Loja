@@ -14,7 +14,6 @@ import play.db.jpa.Model;
 public class Produto extends Model {
 
 	@Required
-	@Min(5)
 	public String nomeProduto;
 
 	@Required
